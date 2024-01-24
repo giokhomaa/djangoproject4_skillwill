@@ -1,0 +1,14 @@
+{% extands 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">Books</h1>
+{% for book in books %}
+    <div class="card mb-3 ">
+        <div class="card-body">
+            <h2 class="card-title"><a href="{% url 'book_detail' book.pk %}">{{book.title}}</a></h2>
+        </div>
+    </div>
+    {% empty %}
+        <p>No books available.</p>
+    {% endfor %}
+{% endblock %}
